@@ -1,4 +1,4 @@
-# FF-GardenFn
+ # FF-GardenFn
 
 > `// Welcome to my open interface.`  
 > `// Please do not think of this as you think of a repo but as a function.`
@@ -88,8 +88,3 @@ This project is licensed under the MIT + No Ego License. Use it. Improve it. Don
 ---
 
 **Created and maintained by [Faycal Farhat](https://github.com/FF-GardenFn)**
-
-git add README.md
-git commit -m "Restore full README.md content"
-git push
-
