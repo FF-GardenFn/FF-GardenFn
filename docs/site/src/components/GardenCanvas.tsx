@@ -2,7 +2,8 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
+// Temporarily remove postprocessing to fix React compatibility
+// import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import * as THREE from 'three'
 import { gsap } from 'gsap'
@@ -386,13 +387,14 @@ export default function GardenCanvas() {
         
         <Scene onNodeSelect={handleNodeSelect} />
         
-        <EffectComposer>
+        {/* Temporarily disabled postprocessing for React compatibility */}
+        {/* <EffectComposer>
           <Bloom 
             luminanceThreshold={0.2} 
             luminanceSmoothing={0.9} 
             intensity={0.8} 
           />
-        </EffectComposer>
+        </EffectComposer> */}
       </Canvas>
       
       {/* Node detail overlay */}
