@@ -1,4 +1,4 @@
- # FF-GardenFn
+# FF-GardenFn
 
 > `// Welcome to my open interface.`  
 > `// Please do not think of this as you think of a repo but as a function.`
@@ -16,23 +16,28 @@
 
 ## Table of Contents
 
-1. [Structure](#structure)  
-2. [Philosophy](#philosophy)  
-3. [Getting Started](#getting-started)  
-4. [Usage](#usage)  
-5. [Contributing](#contributing)  
-6. [License](#license)  
+1. [Projects](#projects)
+2. [Structure](#structure)  
+3. [Philosophy](#philosophy)  
+4. [Getting Started](#getting-started)  
+5. [Usage](#usage)  
+6. [Contributing](#contributing)  
+7. [License](#license)  
 
 ---
 
-## 🌱 Featured Research: PrincipiaDynamica & Constitutional Dynamics
+## 🌱 Projects
+
+The garden contains various projects at different stages of growth, from early experimental seeds to fully bloomed petals:
+
+### Featured Research: PrincipiaDynamica & Constitutional Dynamics
 
 My current primary focus is **PrincipiaDynamica**, a research initiative developing **State Transition Calculus (STC)** — a novel mathematical framework for modeling dynamic, evolving systems. Its core application is AI alignment monitoring, but the theoretical reach spans complex systems, behavioral drift, and recursive optimization.
 
 A major outcome of this work is the Python package **`constitutional-dynamics`** (PyPI: `constitutional-dynamics`):
 - Implements STC to detect alignment drift in LLM behavior over time.
 - Provides a real-time scoring model for robustness, trajectory shifts, and latent behavioral instability.
-- Complements approaches like Constitutional AI by offering **continuous behavioral oversight**—a radar to QK/OV’s microscope.
+- Complements approaches like Constitutional AI by offering **continuous behavioral oversight**—a radar to QK/OV's microscope.
 
 🔗 **Explore the full framework**: [github.com/FF-GardenFn/principiadynamica](https://github.com/FF-GardenFn/principiadynamica)
 
@@ -40,6 +45,20 @@ A major outcome of this work is the Python package **`constitutional-dynamics`**
 > - `/roots/`: STC theory and foundational logic live here.
 > - `/petals/`: `constitutional-dynamics` has bloomed as a polished Python package.
 > - `/docs/`: Development notes, theoretical essays, and philosophical meditations.
+
+### Other Projects in the Garden
+
+#### 🌱 Seeds (Early Explorations)
+- **Semantics**: Experiments in semantic analysis and understanding, exploring how meaning is constructed and interpreted in language and code.
+- **Morphology**: Research on attention mechanisms and visualization techniques, examining the structure and form of neural network attention.
+
+#### 🌿 Roots (Foundational Tools)
+- **Transmuter Project**: A code transformation toolkit that provides the foundation for many other projects, enabling programmatic manipulation of source code.
+- **CodeViz**: Visualization tools for code analysis, focusing on semantic relationships and structural patterns in codebases.
+
+#### 🌸 Petals (Polished Applications)
+- **Personalized News Bot**: An AI-driven news aggregation system that adapts to individual preferences and information needs.
+- **Constitutional Dynamics**: The Python package implementing STC for AI alignment monitoring (part of PrincipiaDynamica).
 
 In this garden:
 - Concepts like **semantic similarity** and **cosine distance** (from `codeviz`) are contextualized and expanded in `/docs/semantic_patterns.md`.
@@ -74,12 +93,26 @@ This project is **alive**—raw, unpolished, and constantly growing.
 
 ## Getting Started
 
-Clone the garden and explore:
+Visit the interactive garden visualization at [ff-gardenfn.github.io/FF-GardenFn](https://ff-gardenfn.github.io/FF-GardenFn) to explore the projects in a 3D environment.
+
+Or clone the garden and explore locally:
 
 ```bash
 git clone https://github.com/FF-GardenFn/FF-GardenFn.git
 cd FF-GardenFn
 ```
+
+### Running the Garden Visualization Locally
+
+To run the interactive garden visualization locally:
+
+```bash
+cd docs/site
+npm install
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
