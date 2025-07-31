@@ -112,7 +112,7 @@ npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000) in your browser.
+The development server will start and automatically open in your browser.
 
 ---
 
@@ -128,6 +128,24 @@ python petals/example_tool.py --help
 ```
 
 Tip: Browse the `/seeds/`, `/roots/`, and `/petals/` folders to discover new experiments and insights.
+
+---
+
+## Deployment
+
+The garden visualization is automatically deployed to GitHub Pages through GitHub Actions. The deployment happens on every push to the main branch.
+
+### Manual Deployment
+
+To deploy manually or to other platforms:
+
+```bash
+cd docs/site
+npm run build
+# The static files will be in the `out/` directory
+```
+
+The site is configured for static export and can be deployed to any static hosting platform (Vercel, Netlify, etc.).
 
 ---
 

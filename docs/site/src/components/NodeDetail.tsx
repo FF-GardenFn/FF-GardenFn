@@ -55,9 +55,12 @@ export default function NodeDetail({ node, onClose }: NodeDetailProps) {
 
   // Create portal to render at the document body level
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
+    <div 
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm"
+      onClick={onClose}
+    >
       <div 
-        className="relative bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-2xl w-full overflow-hidden"
+        className="relative bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden transform transition-all duration-300 glass-card"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with color based on node type */}
@@ -69,18 +72,37 @@ export default function NodeDetail({ node, onClose }: NodeDetailProps) {
         </div>
         
         {/* Content */}
-        <div className="p-6">
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+        <div className="p-6 overflow-y-auto">
+          <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
             {node.description}
           </p>
           
-          {/* Additional metadata could be added here */}
-          <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+          {/* Project metadata */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+              <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+                Type
+              </div>
+              <div className={`text-sm font-medium ${getColorClass(node.type).replace('bg-', 'text-')}`}>
+                {getTypeLabel(node.type)}
+              </div>
+            </div>
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+              <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+                Status
+              </div>
+              <div className="text-sm font-medium text-green-600 dark:text-green-400">
+                Active
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-3">
             <a 
               href={node.url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`inline-flex items-center px-4 py-2 rounded-md text-white ${getColorClass(node.type)} hover:opacity-90 transition-opacity`}
+              className={`flex-1 inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-medium ${getColorClass(node.type)} hover:opacity-90 transition-all duration-300 btn-hover shadow-lg`}
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -98,6 +120,12 @@ export default function NodeDetail({ node, onClose }: NodeDetailProps) {
               </svg>
               Explore Project
             </a>
+            <button
+              onClick={onClose}
+              className="sm:hidden px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+            >
+              Close
+            </button>
           </div>
         </div>
         

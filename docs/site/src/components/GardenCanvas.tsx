@@ -171,9 +171,11 @@ function Node({ node, onClick }: { node: ProjectNode; onClick: (node: ProjectNod
       <meshStandardMaterial 
         color={node.color} 
         emissive={node.color} 
-        emissiveIntensity={hovered ? 0.5 : 0.2} 
-        roughness={0.4} 
-        metalness={0.8} 
+        emissiveIntensity={hovered ? 0.6 : 0.25} 
+        roughness={hovered ? 0.2 : 0.4} 
+        metalness={hovered ? 0.9 : 0.8}
+        transparent
+        opacity={hovered ? 1 : 0.9}
       />
     </mesh>
   )
@@ -371,10 +373,15 @@ export default function GardenCanvas() {
           enableZoom={true} 
           enablePan={true} 
           enableRotate={true}
-          zoomSpeed={0.5}
-          rotateSpeed={0.5}
-          minDistance={3}
-          maxDistance={20}
+          zoomSpeed={0.6}
+          rotateSpeed={0.4}
+          panSpeed={0.8}
+          minDistance={4}
+          maxDistance={25}
+          autoRotate={true}
+          autoRotateSpeed={0.5}
+          enableDamping={true}
+          dampingFactor={0.05}
         />
         
         <Scene onNodeSelect={handleNodeSelect} />

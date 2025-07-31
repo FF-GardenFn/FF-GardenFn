@@ -13,6 +13,9 @@ module.exports = {
         'garden-tertiary': '#4CAF50', // Green for roots
         'garden-accent': '#2196F3', // Blue for petals
         'garden-muted': '#9E9E9E', // Gray for withered
+        'garden-bloom': '#FF69B4', // Pink for special highlights
+        'garden-earth': '#8B4513', // Brown earth tones
+        'garden-sky': '#87CEEB', // Sky blue for backgrounds
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
