@@ -4,9 +4,9 @@
   "description": "Living Hypergarden - Where Ideas Germinate & Bloom",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "mkdir -p out/public && cp -r public/* out/public/ && cp index.html out/ && touch out/.nojekyll",
     "start": "next start",
-    "export": "next build && next export",
+    "export": "npm run build",
     "lint": "next lint"
   },
   "dependencies": {
