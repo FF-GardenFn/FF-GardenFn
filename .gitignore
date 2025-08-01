@@ -86,6 +86,8 @@ docs/site/out/
 docs/site/.vercel/
 docs/site/tsconfig.tsbuildinfo
 docs/site/.claude/
+docs/site/README.md
+docs/site/garden.html
 
 # Build artifacts
 dist/
@@ -117,6 +119,7 @@ build/
 /transmuter-project/
 /templates/
 /.claude/
+/genesis/
 
 # Temporary files
 *.tmp
