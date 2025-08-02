@@ -202,13 +202,18 @@
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 30px;
-            color: #5a6c7d;
+            background: linear-gradient(45deg, #2c3e50, #5a6c7d, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background: linear-gradient(45deg, #2c3e50, #34495e);
+            background: linear-gradient(45deg, #2c3e50, #6366f1);
             color: #ffffff;
             text-decoration: none;
             border-radius: 50px;
@@ -216,11 +221,13 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
         /* Card Styles */
@@ -364,12 +371,13 @@
         /* Data Visualization Containers */
         .viz-container {
             width: 100%;
-            height: 300px;
+            height: 320px;
             margin: 20px 0;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 20px;
             border: 1px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         /* Contact Section */
@@ -424,26 +432,425 @@
             padding: 2px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Mobile-First Responsive Design */
+        
+        /* Disable custom cursor on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor,
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            body {
+                cursor: auto !important;
+            }
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .mobile-nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(44, 62, 80, 0.05);
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a:focus {
+            background: rgba(44, 62, 80, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(44, 62, 80, 0.15);
+        }
+
+        /* Touch-friendly interactive elements */
+        .cta-button,
+        .contact-item,
+        .card {
+            min-height: 44px; /* Apple's recommended minimum touch target */
+        }
+
+        .tech-tag {
+            min-height: 36px;
+            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Enhanced typography scaling */
+        .hero-equation {
+            font-size: clamp(2rem, 8vw, 4rem);
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            line-height: 1.5;
+        }
+
+        /* Mobile breakpoints */
+        @media (max-width: 480px) {
+            /* Extra small phones */
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .hero-equation {
-                font-size: 2.5rem;
+            .mobile-menu-toggle {
+                display: flex;
             }
 
             section {
-                padding: 80px 20px 20px;
+                padding: 60px 16px 40px;
+                min-height: auto;
             }
 
+            .hero {
+                padding: 80px 16px 60px;
+                min-height: 90vh;
+            }
+
+            .hero-equation {
+                margin-bottom: 16px;
+                min-height: auto;
+            }
+
+            .hero p {
+                margin-bottom: 24px;
+                text-align: center;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .card {
+                padding: 20px 16px;
+                margin: 16px 0;
+                border-radius: 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tech-stack {
+                gap: 8px;
+                justify-content: center;
+            }
+
+            .tech-tag {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            .viz-container {
+                height: 280px;
+                padding: 16px;
+                margin: 16px 0;
+                border-radius: 12px;
+            }
+
+            .achievement {
+                padding: 12px 16px;
+                margin: 12px 0;
+                font-size: 0.9rem;
+            }
+
+            .contact-item {
+                padding: 24px 16px;
+            }
+
+            .contact-icon {
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+
+            /* Disable magnetic effects on mobile */
+            .tech-tag.magnetic {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 768px) and (min-width: 481px) {
+            /* Standard mobile phones */
             nav {
                 padding: 15px 20px;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            section {
+                padding: 70px 20px 50px;
+            }
+
+            .hero {
+                padding: 90px 20px 70px;
+            }
+
+            .hero p {
+                margin-bottom: 28px;
+            }
+
+            .cta-button {
+                padding: 14px 28px;
+                width: auto;
+                min-width: 200px;
+            }
+
+            .card {
+                padding: 24px 20px;
+                margin: 18px 0;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+            }
+
+            .viz-container {
+                height: 300px;
+                padding: 18px;
+            }
+
+            .tech-stack {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            /* Tablets */
+            nav {
+                padding: 18px 30px;
+            }
+
+            section {
+                padding: 80px 30px 60px;
+            }
+
+            .hero {
+                padding: 100px 30px 80px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 26px;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 26px;
+            }
+
+            .card {
+                padding: 26px 24px;
+            }
+
+            .viz-container {
+                height: 320px;
+                padding: 20px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 60px 20px 40px;
+            }
+
+            section {
+                min-height: auto;
+                padding: 60px 20px 40px;
+            }
+
+            nav {
+                padding: 10px 20px;
+            }
+
+            .hero-equation {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+                margin-bottom: 20px;
+            }
+        }
+
+        /* High DPI / Retina displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .card {
+                border-width: 0.5px;
+            }
+
+            .nav-links a::after {
+                height: 1px;
+            }
+
+            .section-title::after {
+                height: 0.5px;
+            }
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .cursor,
+            .cursor-trail {
+                display: none !important;
+            }
+
+            .fade-in {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .typewriter {
+                animation: none !important;
+                overflow: visible !important;
+                white-space: normal !important;
+            }
+        }
+
+        /* Dark mode preference support */
+        @media (prefers-color-scheme: dark) {
+            /* Optional: Add dark mode styles if desired */
+        }
+
+        /* Print styles */
+        @media print {
+            .cursor,
+            .cursor-trail,
+            #glsl-canvas,
+            .mobile-menu-toggle,
+            .mobile-nav-overlay {
+                display: none !important;
+            }
+
+            nav {
+                position: static !important;
+                background: white !important;
+                box-shadow: none !important;
+            }
+
+            section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .card {
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
         }
 
@@ -489,8 +896,26 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul class="mobile-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero">
         <div class="fade-in">
@@ -504,14 +929,14 @@
         <div class="fade-in">
             <h2 class="section-title">About Me</h2>
             <div class="card">
-                <p>Model architect exploring AI architectures through the integration of philosophical principles and mathematical optimization. My research focuses on developing theoretical frameworks—State Transition Calculus, Alternating Causal Attention, Constitutional Dynamics—and implementing them as systems that address practical challenges within performance constraints.</p>
+                <p>Model architect developing novel AI architectures through mathematical frameworks. Research centers on State Transition Calculus, Alternating Causal Attention, and Constitutional Dynamics—shipping theoretical insights as production systems.</p>
                 
                 <div class="achievement">
-                    <strong>Research Philosophy:</strong> <em>"Approaching alignment questions as tractable optimization problems through principled model design."</em>
+                    <strong>Research Philosophy:</strong> <em>"Alignment as tractable optimization through principled architecture."</em>
                 </div>
                 
                 <div class="achievement">
-                    <strong>Methodological Approach:</strong> Mathematical frameworks that conceptualize AI behavior as dynamic systems rather than static functions
+                    <strong>Approach:</strong> Dynamic systems over static functions—AI as trajectory through vector space
                 </div>
 
                 <div class="tech-stack">
@@ -534,15 +959,15 @@
                     <h3>Model Architect & Theoretical AI</h3>
                     <div class="company">Independent Research</div>
                     <div class="date">2023 - Present</div>
-                    <p>Designing novel AI architectures by creating new mathematical frameworks and shipping them as production systems.</p>
+                    <p>Novel AI architectures through mathematical frameworks. Shipping theoretical insights as production systems.</p>
                     <div class="achievement">
-                        <strong>State Transition Calculus (STC):</strong> Complete mathematical framework treating AI alignment as trajectory through vector space. Published as <em>constitutional-dynamics</em> PyPI package.
+                        <strong>State Transition Calculus:</strong> AI alignment as vector space trajectory. PyPI package: <em>constitutional-dynamics</em>.
                     </div>
                     <div class="achievement">
-                        <strong>Alternating Causal Attention:</strong> Novel bidirectional attention mechanism with "push-pull" resonance validation. Empirically validated with 15.8% training loss improvement.
+                        <strong>Alternating Causal Attention:</strong> Bidirectional attention with push-pull resonance. 15.8% training loss improvement.
                     </div>
                     <div class="achievement">
-                        <strong>Multi-Agent Architecture:</strong> Wave-based information processing achieving <strong>44% improvement in Actionable Insight Rate</strong>.
+                        <strong>Multi-Agent Architecture:</strong> Wave-based processing. <strong>44% improvement in Actionable Insight Rate</strong>.
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Novel Architectures</span>
@@ -555,7 +980,7 @@
                     <h3>Operations Analyst</h3>
                     <div class="company">MEZZMIZ Inc.</div>
                     <div class="date">2022</div>
-                    <p>Automated KPI dashboards (Python) that boosted customer retention 20%; validated supply-chain forecast models.</p>
+                    <p>Automated KPI dashboards (Python), 20% retention boost. Supply-chain forecast validation.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Data Analysis</span>
@@ -572,15 +997,18 @@
             <h2 class="section-title">Research Projects</h2>
             <div class="grid">
                 <div class="card project-item">
-                    <h3>AgentMarket Genesis</h3>
+                    <h3>Genesis Project: Multi-Agent Economic Dynamics</h3>
                     <div class="project-status status-research">Research • Adaptive RL Architecture</div>
                     <div class="date">2024 - Present</div>
-                    <p>A proposed adaptive reinforcement learning environment where AI agents encounter resource constraints and competitive pressures. This environment functions not merely as a data source but as a dynamic system that responds to agent actions, potentially fostering robust artificial intelligence through market dynamics and selective pressures.</p>
+                    <p>Investigating adaptive reinforcement learning architectures within constrained resource environments to model emergent behaviors under competitive market pressures. This research examines how economic mechanisms can serve as selective pressures for AI system robustness and alignment.</p>
                     <div class="achievement">
-                        <strong>Research Direction:</strong> Investigating multi-agent systems where agents develop tools, exchange resources, form coalitions, and potentially establish complex interactions through market mechanisms
+                        <strong>Research Hypothesis:</strong> Market-mediated resource allocation mechanisms induce emergent cooperation and specialization behaviors in multi-agent systems, potentially serving as natural alignment mechanisms through economic incentive structures.
                     </div>
                     <div class="achievement">
-                        <strong>Theoretical Framework:</strong> Examines agent adaptation within economic constraints—agents must develop novel strategies to maintain viability in non-stationary environments
+                        <strong>Theoretical Framework:</strong> Agent adaptation under economic constraints in non-stationary environments, examining the intersection of game-theoretic equilibria and dynamic system stability under resource scarcity.
+                    </div>
+                    <div class="achievement">
+                        <strong>Research Questions:</strong> (1) How do market dynamics influence agent specialization patterns? (2) Can economic constraints serve as implicit alignment mechanisms? (3) What equilibrium structures emerge under resource-constrained cooperation?
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Adaptive RL</span>
@@ -588,19 +1016,20 @@
                         <span class="tech-tag">Game Theory</span>
                         <span class="tech-tag">Economic Evolution</span>
                         <span class="tech-tag">Nash Equilibrium</span>
+                        <span class="tech-tag">Mechanism Design</span>
                     </div>
                 </div>
                 <div class="card project-item">
                     <h3>PrincipiaDynamica</h3>
                     <div class="project-status status-active">Active • PyPI Package</div>
                     <div class="date">2024 - Present</div>
-                    <p>A proposed mathematical framework that approaches AI alignment as trajectory optimization through high-dimensional vector spaces. This work explores connections between philosophical concepts and mathematical formulations to model AI behavioral evolution as dynamic state transitions rather than static scoring.</p>
+                    <p>Mathematical framework treating AI alignment as trajectory optimization through high-dimensional vector spaces. Modeling behavioral evolution as dynamic state transitions.</p>
                     <div class="viz-container" id="stc-viz"></div>
                     <div class="achievement">
-                        <strong>Mathematical Formulation:</strong> φ(aᵢ, t, wᵢ) activation functions with residual potentialities b(a_residual) and dynamic balancing λ(t)
+                        <strong>Formulation:</strong> φ(aᵢ, t, wᵢ) activations, residual potentialities b(a_residual), dynamic balancing λ(t)
                     </div>
                     <div class="achievement">
-                        <strong>Implementation:</strong> Published PyPI package with Neo4j integration, QUBO optimization, and real-time monitoring capabilities
+                        <strong>Implementation:</strong> PyPI package, Neo4j integration, QUBO optimization, real-time monitoring
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Mathematical Philosophy</span>
@@ -635,13 +1064,13 @@
                     <h3>Nested Intent Graph Architecture</h3>
                     <div class="project-status status-active">Active • Intent-Aware Co-Pilot</div>
                     <div class="date">2024 - 2025</div>
-                    <p>An architectural approach that represents code repositories as nested intent graphs where concepts, capabilities, contexts, and contracts are modeled as navigable entities. This methodology aims to transform static files into a structured graph representation that may facilitate more efficient context retrieval for both human developers and AI systems.</p>
+                    <p>Code repositories as nested intent graphs. Concepts, capabilities, contexts, contracts as navigable entities. Static files → structured graph for efficient context retrieval.</p>
                     <div class="viz-container" id="codesemantics-viz"></div>
                     <div class="achievement">
-                        <strong>Conceptual Framework:</strong> Proposes a transition from "Files & Symbols" to Intent Primitives. Explores how Graph-Aware RAG with structural priors may improve upon context-based approaches for large codebases
+                        <strong>Framework:</strong> Files & Symbols → Intent Primitives. Graph-Aware RAG with structural priors for large codebases
                     </div>
                     <div class="achievement">
-                        <strong>Technical Implementation:</strong> Utilizes Polyglot Code Property Graph with temporal metadata, runtime probes, and potential applications in refactoring analysis
+                        <strong>Implementation:</strong> Polyglot Code Property Graph, temporal metadata, runtime probes, refactoring analysis
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Intent Primitives</span>
@@ -652,21 +1081,25 @@
                 </div>
 
                 <div class="card project-item">
-                    <h3>Multi-Step Resonance & Attention Field Emergence</h3>
-                    <div class="project-status status-research">Research • Field Phenomena Analysis</div>
+                    <h3>Multi-Step Resonance & Bidirectional Field Dynamics</h3>
+                    <div class="project-status status-research">Research • Advanced Attention Mechanisms</div>
                     <div class="date">2024 - 2025</div>
-                    <p>An experimental implementation of multi-cycle resonance in AC Attention, investigating potential field-like behaviors in transformer attention mechanisms. This research examines how field-theoretic concepts might be operationalized as measurable phenomena, including patterns resembling standing waves, field concentration, and cross-layer propagation.</p>
+                    <p>Investigating multi-cycle resonance in AC Attention with bidirectional field dynamics. Novel transformer architectures exhibiting field-like behaviors including standing waves, interference patterns, and emergent resonant modes through push-pull attention mechanisms.</p>
                     <div class="achievement">
-                        <strong>Observed Phenomena:</strong> Field energy metrics showing evolution from 0.5 → 1.0+ through resonance cycles, correlation patterns consistent with standing waves, concentration scores ranging from 0.8-0.95
+                        <strong>Field Emergence:</strong> Field energy evolution 0.5 → 1.0+ through 2-3 resonance cycles, demonstrable standing wave patterns, concentration scores 0.8-0.95 with cross-layer coherence
                     </div>
                     <div class="achievement">
-                        <strong>Research Contribution:</strong> Examination of attention mechanisms exhibiting properties analogous to wave propagation, interference patterns, and resonance behaviors in physical systems
+                        <strong>Bidirectional Dynamics:</strong> Extended push-pull cycles with learnable field momentum, cycle-specific parameters, and constructive/destructive interference gating mechanisms
+                    </div>
+                    <div class="achievement">
+                        <strong>Research Innovation:</strong> Template-based wave pattern detection, FFT analysis for resonance frequency identification, cross-layer field propagation tracking
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Field Dynamics</span>
-                        <span class="tech-tag">Multi-Step Resonance</span>
+                        <span class="tech-tag">Bidirectional Resonance</span>
                         <span class="tech-tag">Standing Wave Analysis</span>
                         <span class="tech-tag">Cross-Layer Propagation</span>
+                        <span class="tech-tag">Interference Patterns</span>
                     </div>
                 </div>
 
@@ -679,29 +1112,29 @@
             <h2 class="section-title">Research Philosophy</h2>
             <div class="card">
                 <h3 style="color: #6366f1; margin-bottom: 20px;">Mathematical Philosophy for AI</h3>
-                <p>AI systems are not static functions but dynamic processes evolving through high-dimensional state spaces. My approach treats model architecture as applied philosophy—each mathematical framework embodies specific assumptions about intelligence, learning, and alignment.</p>
+                <p>AI as dynamic processes evolving through high-dimensional state spaces. Model architecture as applied philosophy—mathematical frameworks embody assumptions about intelligence, learning, alignment.</p>
                 
                 <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-left: 4px solid #8b5cf6; padding: 20px; margin: 25px 0; border-radius: 8px; font-style: italic;">
-                    <p style="margin: 0; color: #5a5a5a;">"The compost of deprecated experiments nourishes the next generation of insights. Every failure teaches us something about the structure of intelligence itself."</p>
+                    <p style="margin: 0; color: #5a5a5a;">"Deprecated experiments nourish the next generation of insights. Every failure reveals intelligence structure."</p>
                 </div>
                 
                 <h4 style="color: #2c3e50; margin: 25px 0 15px 0;">Core Principles</h4>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                     <div>
                         <strong style="color: #6366f1;">Dynamic Over Static:</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Model AI behavior as trajectory through vector space rather than fixed mappings</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">AI behavior as vector space trajectory, not fixed mappings</p>
                     </div>
                     <div>
                         <strong style="color: #8b5cf6;">Philosophy → Math → Code:</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Every architecture embodies philosophical assumptions about intelligence</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Architectures embody philosophical assumptions</p>
                     </div>
                     <div>
                         <strong style="color: #6366f1;">Resonance & Validation:</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Mutual validation mechanisms increase robustness (AC Attention, STC)</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Mutual validation increases robustness</p>
                     </div>
                     <div>
                         <strong style="color: #8b5cf6;">Cross-Pollination:</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Ideas migrate between projects, creating unexpected connections</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.95rem;">Ideas migrate between projects</p>
                     </div>
                 </div>
                 
@@ -727,18 +1160,18 @@
                     <h3>B.Sc. Physics & Computer Science</h3>
                     <div class="institution">McGill University</div>
                     <div class="date">2023 - Present</div>
-                    <p>Currently on independent research sabbatical focusing on AI alignment research.</p>
+                    <p>Independent research sabbatical, AI alignment focus.</p>
                     <div class="achievement">
-                        <strong>Focus:</strong> Self-directed research in AI safety and constitutional AI
+                        <strong>Focus:</strong> AI safety, constitutional AI
                     </div>
                 </div>
                 <div class="card education-item">
                     <h3>B.A. Philosophy (Honours)</h3>
                     <div class="institution">Concordia University</div>
                     <div class="date">2017 - 2022</div>
-                    <p>Honours thesis: "Processes of Nature: An a priori Phenomenology of the Ordered Universe" focusing on modal logic and decision theory.</p>
+                    <p>Honours thesis: "Processes of Nature: An a priori Phenomenology of the Ordered Universe"—modal logic, decision theory.</p>
                     <div class="achievement">
-                        <strong>Specialization:</strong> Modal logic, decision theory, philosophy of science
+                        <strong>Specialization:</strong> Modal logic, decision theory
                     </div>
                 </div>
             </div>
@@ -755,11 +1188,6 @@
                     <p>faycal.farhat@mail.mcgill.ca</p>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <h3>Phone</h3>
-                    <p>+1 514 862 6868</p>
-                </div>
-                <div class="contact-item">
                     <div class="contact-icon">🐙</div>
                     <h3>GitHub</h3>
                     <p>github.com/FF-GardenFn</p>
@@ -772,9 +1200,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(0, 0, 0, 0.1);">
-                <p style="color: #7f8c8d;">Canadian citizen • US TN / H-1B-cap exempt eligible</p>
-                <p style="color: #7f8c8d; margin-top: 10px;">Languages: English/French/Arabic (native) • German B1 • Mandarin A2</p>
-                <p style="color: #6366f1; margin-top: 15px; font-style: italic; font-size: 0.9rem;">"Philosophy → Mathematics → Code"</p>
+                <p style="color: #6366f1; margin-top: 15px; font-style: italic; font-size: 0.9rem;">&copy; 2025 Faycal Farhat • Built with Mathematical Precision</p>
             </div>
         </div>
     </section>
@@ -1099,8 +1525,8 @@
 
             createNewsBotViz() {
                 const data = [{
-                    r: [0.88, 0.92, 0.85, 0.90, 0.87, 0.83],
-                    theta: ['Categorization', 'Fact-checking', 'Synthesis', 'Relevance', 'AIR (+44%)', 'Cost Efficiency'],
+                    r: [0.88, 0.92, 0.85, 0.90, 0.87],
+                    theta: ['Categorization', 'Fact-Check', 'Synthesis', 'Relevance', 'AIR (+44%)'],
                     fill: 'toself',
                     type: 'scatterpolar',
                     marker: { color: '#2c3e50' }
@@ -1110,13 +1536,20 @@
                     polar: {
                         radialaxis: {
                             visible: true,
-                            range: [0, 1]
+                            range: [0, 1],
+                            tickfont: { size: 10 }
+                        },
+                        angularaxis: {
+                            tickfont: { size: 11 }
                         }
                     },
-                    title: 'Multi-Agent News Bot Performance',
-                    height: 250,
-                    margin: { t: 40, b: 20, l: 20, r: 20 },
-                    font: { family: 'Segoe UI', size: 12 },
+                    title: {
+                        text: 'News Bot Performance',
+                        font: { size: 14 }
+                    },
+                    height: 280,
+                    margin: { t: 50, b: 30, l: 30, r: 30 },
+                    font: { family: 'Segoe UI', size: 11 },
                     paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)'
                 };
@@ -1125,13 +1558,21 @@
             }
 
             createCodeSemanticsViz() {
-                const svg = d3.select('#codesemantics-viz')
+                const container = d3.select('#codesemantics-viz');
+                const containerRect = container.node().getBoundingClientRect();
+                const width = Math.max(containerRect.width - 40, 560);
+                const height = 280;
+                
+                const svg = container
                     .append('svg')
                     .attr('width', '100%')
-                    .attr('height', 250);
+                    .attr('height', height)
+                    .attr('viewBox', `0 0 ${width} ${height}`)
+                    .style('display', 'block')
+                    .style('margin', '0 auto');
 
                 const nodes = [
-                    { id: 'CodeSemantics', group: 1, size: 25 },
+                    { id: 'Intent Graph Core', group: 1, size: 28 },
                     { id: 'Context Fusion', group: 2, size: 22 },
                     { id: 'Multi-modal Parse', group: 2, size: 20 },
                     { id: 'Chat History', group: 3, size: 18 },
@@ -1141,8 +1582,8 @@
                 ];
 
                 const links = [
-                    { source: 'CodeSemantics', target: 'Context Fusion' },
-                    { source: 'CodeSemantics', target: 'Multi-modal Parse' },
+                    { source: 'Intent Graph Core', target: 'Context Fusion' },
+                    { source: 'Intent Graph Core', target: 'Multi-modal Parse' },
                     { source: 'Context Fusion', target: 'Chat History' },
                     { source: 'Context Fusion', target: 'Semantic Bridge' },
                     { source: 'Multi-modal Parse', target: 'Code Relevance' },
@@ -1150,11 +1591,13 @@
                     { source: 'Code Relevance', target: 'Unified Embedding' },
                     { source: 'Chat History', target: 'Unified Embedding' }
                 ];
-
+                
                 const simulation = d3.forceSimulation(nodes)
-                    .force('link', d3.forceLink(links).id(d => d.id))
-                    .force('charge', d3.forceManyBody().strength(-300))
-                    .force('center', d3.forceCenter(300, 125));
+                    .force('link', d3.forceLink(links).id(d => d.id).distance(80))
+                    .force('charge', d3.forceManyBody().strength(-800))
+                    .force('center', d3.forceCenter(width / 2, height / 2))
+                    .force('x', d3.forceX(width / 2).strength(0.1))
+                    .force('y', d3.forceY(height / 2).strength(0.1));
 
                 const link = svg.append('g')
                     .selectAll('line')
@@ -1256,6 +1699,248 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Mobile Navigation
+        class MobileNavigation {
+            constructor() {
+                this.menuToggle = document.getElementById('mobileMenuToggle');
+                this.navOverlay = document.getElementById('mobileNavOverlay');
+                this.mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+                this.isOpen = false;
+                
+                this.bindEvents();
+            }
+
+            bindEvents() {
+                // Toggle menu on button click
+                this.menuToggle.addEventListener('click', () => {
+                    this.toggleMenu();
+                });
+
+                // Close menu when clicking on overlay
+                this.navOverlay.addEventListener('click', (e) => {
+                    if (e.target === this.navOverlay) {
+                        this.closeMenu();
+                    }
+                });
+
+                // Close menu when clicking on navigation links
+                this.mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        this.closeMenu();
+                    });
+                });
+
+                // Close menu on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.isOpen) {
+                        this.closeMenu();
+                    }
+                });
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && this.isOpen) {
+                        this.closeMenu();
+                    }
+                });
+
+                // Prevent body scroll when menu is open
+                this.navOverlay.addEventListener('touchmove', (e) => {
+                    if (this.isOpen) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+            }
+
+            toggleMenu() {
+                if (this.isOpen) {
+                    this.closeMenu();
+                } else {
+                    this.openMenu();
+                }
+            }
+
+            openMenu() {
+                this.isOpen = true;
+                this.menuToggle.classList.add('active');
+                this.navOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                
+                // Add accessibility
+                this.menuToggle.setAttribute('aria-expanded', 'true');
+                this.navOverlay.setAttribute('aria-hidden', 'false');
+            }
+
+            closeMenu() {
+                this.isOpen = false;
+                this.menuToggle.classList.remove('active');
+                this.navOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+                
+                // Add accessibility
+                this.menuToggle.setAttribute('aria-expanded', 'false');
+                this.navOverlay.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        // Initialize mobile navigation
+        new MobileNavigation();
+
+        // Touch gesture improvements
+        class TouchEnhancements {
+            constructor() {
+                this.addTouchRipples();
+                this.improveTouchTargets();
+            }
+
+            addTouchRipples() {
+                // Add touch feedback to interactive elements
+                const interactiveElements = document.querySelectorAll('.cta-button, .tech-tag, .contact-item, .mobile-nav-links a');
+                
+                interactiveElements.forEach(element => {
+                    element.addEventListener('touchstart', (e) => {
+                        this.createRipple(e, element);
+                    }, { passive: true });
+                });
+            }
+
+            createRipple(event, element) {
+                const ripple = document.createElement('span');
+                const rect = element.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.touches[0].clientX - rect.left - size / 2;
+                const y = event.touches[0].clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+
+                // Add ripple animation if not already added
+                if (!document.head.querySelector('#ripple-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'ripple-styles';
+                    style.textContent = `
+                        @keyframes ripple {
+                            to {
+                                transform: scale(2);
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+
+                // Ensure element has relative positioning for ripple
+                const position = window.getComputedStyle(element).position;
+                if (position === 'static') {
+                    element.style.position = 'relative';
+                }
+                element.style.overflow = 'hidden';
+
+                element.appendChild(ripple);
+
+                // Remove ripple after animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+
+            improveTouchTargets() {
+                // Ensure minimum touch target sizes
+                const touchTargets = document.querySelectorAll('a, button, .tech-tag, .contact-item');
+                
+                touchTargets.forEach(target => {
+                    const rect = target.getBoundingClientRect();
+                    if (rect.height < 44) {
+                        target.style.minHeight = '44px';
+                        target.style.display = target.style.display || 'inline-flex';
+                        target.style.alignItems = 'center';
+                        target.style.justifyContent = 'center';
+                    }
+                });
+            }
+        }
+
+        // Initialize touch enhancements on touch devices
+        if ('ontouchstart' in window) {
+            new TouchEnhancements();
+        }
+
+        // Performance optimizations for mobile
+        class MobileOptimizations {
+            constructor() {
+                this.optimizeForMobile();
+                this.handleOrientationChange();
+                this.optimizeScrolling();
+            }
+
+            optimizeForMobile() {
+                // Disable hover effects on touch devices
+                if ('ontouchstart' in window) {
+                    document.documentElement.classList.add('touch-device');
+                    
+                    // Add styles for touch devices
+                    const touchStyles = document.createElement('style');
+                    touchStyles.textContent = `
+                        .touch-device .card:hover,
+                        .touch-device .contact-item:hover,
+                        .touch-device .cta-button:hover {
+                            transform: none !important;
+                        }
+                        
+                        .touch-device .tech-tag:hover {
+                            background: rgba(44, 62, 80, 0.1) !important;
+                            transform: none !important;
+                        }
+                    `;
+                    document.head.appendChild(touchStyles);
+                }
+            }
+
+            handleOrientationChange() {
+                window.addEventListener('orientationchange', () => {
+                    // Force repaint on orientation change
+                    setTimeout(() => {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 100);
+                });
+            }
+
+            optimizeScrolling() {
+                // Add smooth scroll behavior for iOS
+                document.documentElement.style.webkitOverflowScrolling = 'touch';
+                
+                // Throttle scroll events on mobile
+                let scrollTimeout;
+                const originalScrollHandler = window.onscroll;
+                
+                window.onscroll = () => {
+                    if (scrollTimeout) {
+                        clearTimeout(scrollTimeout);
+                    }
+                    
+                    scrollTimeout = setTimeout(() => {
+                        if (originalScrollHandler) {
+                            originalScrollHandler();
+                        }
+                    }, 16); // ~60fps
+                };
+            }
+        }
+
+        // Initialize mobile optimizations
+        new MobileOptimizations();
     </script>
 </body>
 </html>
