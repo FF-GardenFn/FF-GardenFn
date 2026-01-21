@@ -8,7 +8,7 @@
 
 ## About
 
-Student with a degree in Philosophy and Theology (understanding the presuppositions of science), currently paused studies in Physics and Computer Science. Independent AI researcher.
+Independent AI researcher with a degree in Philosophy and Theology (understanding the presuppositions of science), currently paused studies in Physics and Computer Science. 
 
 Areas of Interests: metaphysics, physics of intelligence, quantum information science, activation steering, behavioral monitoring, philosophy of mind and language, and the mathematical foundations of neural computation.
 
