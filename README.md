@@ -1,169 +1,87 @@
-# FF-GardenFn
+# Faycal Farhat
 
-> `// Welcome to my open interface.`  
-> `// Please do not think of this as you think of a repo but as a function.`
-
-![Build Status](https://img.shields.io/badge/state-experimental-orange)  
-![License](https://img.shields.io/badge/license-MIT-informational)  
-![Type](https://img.shields.io/badge/repo-functional--garden-8A2BE2) 
-![Focus](https://img.shields.io/badge/Currently_Focused_On-AI_Alignment_&_STC-blueviolet)
-![Last Commit](https://img.shields.io/github/last-commit/FF-GardenFn/FF-GardenFn)
-
-
-**FF-GardenFn** is a callable, ever-evolving "function" that surfaces curated experiments, unfinished thoughts, and executable insight fragments from Faycal Farhat's hyperstack.
+![Focus](https://img.shields.io/badge/Focus-AI_Safety_&_Alignment-blueviolet)
+![Status](https://img.shields.io/badge/Status-Active_Research-green)
 
 ---
 
-## Table of Contents
+## About
 
-1. [Projects](#projects)
-2. [Structure](#structure)  
-3. [Philosophy](#philosophy)  
-4. [Getting Started](#getting-started)  
-5. [Usage](#usage)  
-6. [Contributing](#contributing)  
-7. [License](#license)  
+Student with a degree in Philosophy and Theology (understanding the presuppositions of science), currently paused studies in Physics and Computer Science. Independent AI researcher.
+
+Areas of Interests: metaphysics, physics of intelligence, quantum information science, activation steering, behavioral monitoring, philosophy of mind and language, and the mathematical foundations of neural computation.
 
 ---
 
-## 🌱 Projects
+## Projects
 
-The garden contains various projects at different stages of growth, from early experimental seeds to fully bloomed petals:
+### Research
 
-### Featured Research: PrincipiaDynamica & Constitutional Dynamics
+#### AI Safety & Alignment
 
-My current primary focus is **PrincipiaDynamica**, a research initiative developing **State Transition Calculus (STC)** — a novel mathematical framework for modeling dynamic, evolving systems. Its core application is AI alignment monitoring, but the theoretical reach spans complex systems, behavioral drift, and recursive optimization.
+**[scale-invariant-interpretability](https://github.com/FF-GardenFn/scale-invariant-interpretability)**
+Investigating whether mathematical structures in small neural networks predict behaviors in larger models. Proposes that mathematical invariants computed from small models remain conserved at scale, enabling efficient cross-scale analysis.
 
-A major outcome of this work is the Python package **`constitutional-dynamics`** (PyPI: `constitutional-dynamics`):
-- Implements STC to detect alignment drift in LLM behavior over time.
-- Provides a real-time scoring model for robustness, trajectory shifts, and latent behavioral instability.
-- Complements approaches like Constitutional AI by offering **continuous behavioral oversight**—a radar to QK/OV's microscope.
+**[persona-vector-probes](https://github.com/FF-GardenFn/persona-vector-probes)**
+Examining whether internal model vectors correlate with reported phenomenological experience. Tests the relationship between mechanical behavior modification and subjective states through behavioral proxies. Framework designed to generate useful data regardless of outcome.
 
-🔗 **Explore the full framework**: [github.com/FF-GardenFn/principiadynamica](https://github.com/FF-GardenFn/principiadynamica)
+**[avat-behavioral-steering](https://github.com/FF-GardenFn/avat-behavioral-steering)**
+Testing whether activation steering can induce instrumental misalignment behaviors through vector manipulation. Builds on activation addition research (Turner et al., 2023) and contrastive activation steering (Rimsky et al., 2023). Safety research identifying vulnerabilities to develop defenses.
 
-> **Repo Integration**
-> - `/roots/`: STC theory and foundational logic live here.
-> - `/petals/`: `constitutional-dynamics` has bloomed as a polished Python package.
-> - `/docs/`: Development notes, theoretical essays, and philosophical meditations.
+**[research-notes](https://github.com/FF-GardenFn/research-notes)**
+Critical analysis of fundamental limitations in current AI alignment approaches. Identifies three core constraints and fourteen failure modes across Constitutional AI, RLHF, and interpretability techniques. Engages with counter-evidence and frames claims as hypotheses worth investigating.
 
-### Other Projects in the Garden
+#### Behavioral Monitoring
 
-#### 🌱 Seeds (Early Explorations)
-- **Semantics**: Experiments in semantic analysis and understanding, exploring how meaning is constructed and interpreted in language and code.
-- **Morphology**: Research on attention mechanisms and visualization techniques, examining the structure and form of neural network attention.
+**[principiadynamica](https://github.com/FF-GardenFn/principiadynamica)** | [PyPI: constitutional-dynamics](https://pypi.org/project/constitutional-dynamics/)
+State Transition Calculus (STC) for modeling AI alignment as continuous trajectory through embedding space. Monitors behavioral drift via φ-alignment scores, Lyapunov stability, and frequency-domain analysis. Extends Constitutional AI to runtime monitoring.
 
-#### 🌿 Roots (Foundational Tools)
-- **Transmuter Project**: A code transformation toolkit that provides the foundation for many other projects, enabling programmatic manipulation of source code.
-- **CodeViz**: Visualization tools for code analysis, focusing on semantic relationships and structural patterns in codebases.
+#### Interpretability
 
-#### 🌸 Petals (Polished Applications)
-- **Personalized News Bot**: An AI-driven news aggregation system that adapts to individual preferences and information needs.
-- **Constitutional Dynamics**: The Python package implementing STC for AI alignment monitoring (part of PrincipiaDynamica).
-
-In this garden:
-- Concepts like **semantic similarity** and **cosine distance** (from `codeviz`) are contextualized and expanded in `/docs/semantic_patterns.md`.
-- The **philosophy of information** and the need for personalization (as seen in `personalized-news-bot`) is explored in `/docs/information_entropy.md`.
-- Future essays will also link **constitutional AI**, **dynamic ethics**, and **self-healing architectures** to the STC lineage.
-
-Ideas sprout in one project, bloom in another, and compost into future insight.
+**[kernel-ridge-steering](https://github.com/FF-GardenFn/kernel-ridge-steering)**
+Examining whether spectral properties of activations predict effective steering intervention points. Early empirical results on GPT2 showing correlation (r=0.61) between spectral gap and steering effectiveness. 
 
 ---
 
-## Structure
+### Research Engineering
 
-The repository mimics a living garden—each folder plays a distinct role in the lifecycle of an idea:
+**[ctxpack](https://github.com/FF-GardenFn/llm-playground)**
+LLM context compression. Aims to achieve reduction through orthogonal storage and query compressions. Employs a Degree system (1-10) that maps to cache tiers from seed summaries to full sessions. Compress once, query at any resolution.
 
-- **`/seeds/`** — Sketchpad-level code, napkin logic, quantum seeds.  
-- **`/roots/`** — Foundational ideas with broad public utility.  
-- **`/petals/`** — Beautifully executed micro-tools or polished documents.  
-- **`/withered/`** — Deprecated ideas or self-roasts (pruning matters).  
-- **`/docs/`** — Documentation, "thinking aloud" essays, and process notes.  
-- **`/tests/`** — Validation frameworks and experimental metrics.  
-- **`/meta/`** — Metadata about the garden itself.
+**[graph-aware-rag](https://github.com/FF-GardenFn/llm-playground)**
+Retrieval system using Code Property Graphs with multi-modal attention and information-theoretic ranking. Aims to achieve better context selection than traditional RAG by understanding code structure.
 
----
-
-## Philosophy
-
-This project is **alive**—raw, unpolished, and constantly growing.  
-- **Forks** are encouraged, **mirrors** are expected.  
-- But remember: *a garden thrives on care, not mere cloning.*  
+**[codeviz](https://github.com/FF-GardenFn/codeviz)**
+Code analysis bridging static understanding with conversational context for LLM-optimized prompts. Multi-language AST parsing, semantic embeddings, token-aware generation.
 
 ---
 
-## Getting Started
+### Applications
 
-Visit the interactive garden visualization at [ff-gardenfn.github.io/FF-GardenFn](https://ff-gardenfn.github.io/FF-GardenFn) to explore the projects in a 3D environment.
+**[personalized-news-bot](https://github.com/FF-GardenFn/personalized-news-bot)**
+Multi-agent system transforming news into personalized intelligence through 7-agent pipeline. Evolved through 6 prompt engineering iterations with rigorous evaluation. Key finding: when prompt engineering succeeds vs when architectural solutions are essential.
 
-Or clone the garden and explore locally:
+**[llm-playground](https://github.com/FF-GardenFn/llm-playground)**
+Research monorepo with 10+ specialized LLM agents, multi-agent orchestration, constitutional-debate framework, and MCP server hosting.
 
-```bash
-git clone https://github.com/FF-GardenFn/FF-GardenFn.git
-cd FF-GardenFn
-```
-
-### Running the Garden Visualization Locally
-
-To run the interactive garden visualization locally:
-
-```bash
-cd docs/site
-npm install
-npm run dev
-```
-
-The development server will start and automatically open in your browser.
+**[XFN-CFPE](https://github.com/FF-GardenFn/XFN-CFPE)** *(Prompt Engineering Infrastructure)*
+Closed-loop system for systematic prompt engineering at scale. Hypothesis-driven development with execution engine, evaluation rubrics, and data-driven iteration. Contains DIALECTICA system prompts, multi-provider response collection, and comparison harnesses for prompt optimization and safety testing.
 
 ---
 
-## Usage
+### Learning Projects
 
-### Calling the Function
+**[mechanistic-interpretability-techniques](https://github.com/FF-GardenFn/mechanistic-interpretability-techniques)**
+Tracks a significant amount of papers covering 23 mechanistic interpretability techniques. Summarizes paper main finding alongside its working implementations. 
+Learning through building. Favors breadth over depth.
 
-Treat the repo as an interface rather than a static library. For example, you might:
+**[transmuter-project](https://github.com/FF-GardenFn/transmuter-project)**
+Aim: Python interpreter built from scratch. Tackles metaclass magic, descriptor protocol, MRO, generators, and other features that break toy interpreters. Classic architecture: Lexer → Parser → Evaluator → Object System.
 
-```bash
-# Example: run a specific "petal" microtool
-python petals/example_tool.py --help
-```
+**[arm_sorter](https://github.com/FF-GardenFn/arm_sorter)**
+Raspberry Pi robotic arm with RFID and vision integration. Built physical arm, wiring scaffolds, servo control. Designed MCP server for Claude integration. Currently paused.
 
-Tip: Browse the `/seeds/`, `/roots/`, and `/petals/` folders to discover new experiments and insights.
-
----
-
-## Deployment
-
-The garden visualization is automatically deployed to GitHub Pages through GitHub Actions. The deployment happens on every push to the main branch.
-
-### Manual Deployment
-
-To deploy manually or to other platforms:
-
-```bash
-cd docs/site
-npm run build
-# The static files will be in the `out/` directory
-```
-
-The site is configured for static export and can be deployed to any static hosting platform (Vercel, Netlify, etc.).
+**[puzzles](https://github.com/FF-GardenFn/puzzles)**
+Logic puzzles when time permits.To date features 1 Jane Street challenge, philosophical logic in Z3. 
 
 ---
-
-## Contributing
-
-1. Fork the repository.
-2. Branch your changes (`git checkout -b feature/my-new-idea`).
-3. Commit with clear messages.
-4. Push to your fork and open a Pull Request.
-
-All levels of contribution are welcome—whether it's a new seed, a fresh petal, or thoughtful pruning in `/withered/`.
-
----
-
-## License
-
-This project is licensed under the MIT + No Ego License. Use it. Improve it. Don't DM me if you break the universe.
-
----
-
-**Created and maintained by [Faycal Farhat](https://github.com/FF-GardenFn)**
