@@ -2,6 +2,7 @@
 
 ![Focus](https://img.shields.io/badge/Focus-AI_Safety_&_Alignment-blueviolet)
 ![Status](https://img.shields.io/badge/Status-Active_Research-green)
+![Methodology](https://img.shields.io/badge/Methodology-Formal_Epistemics-blue)
 
 ---
 
