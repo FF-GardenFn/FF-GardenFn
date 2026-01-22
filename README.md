@@ -8,7 +8,7 @@
 
 ## About
 
-Independent AI researcher with a degree in Philosophy and Theology (understanding the presuppositions of science), currently paused studies in Physics and Computer Science. 
+Independent AI researcher with a degree in Philosophy and Theology (understanding the presuppositions of science),currently completing coursework for a double major in Physics and Computer Science. 
 
 Areas of Interests: metaphysics, physics of intelligence, quantum information science, activation steering, behavioral monitoring, philosophy of mind and language, and the mathematical foundations of neural computation.
 
@@ -24,7 +24,8 @@ Areas of Interests: metaphysics, physics of intelligence, quantum information sc
 Investigating whether mathematical structures in small neural networks predict behaviors in larger models. Proposes that mathematical invariants computed from small models remain conserved at scale, enabling efficient cross-scale analysis.
 
 **[persona-vector-probes](https://github.com/FF-GardenFn/persona-vector-probes)**
-Examining whether internal model vectors correlate with reported phenomenological experience. Tests the relationship between mechanical behavior modification and subjective states through behavioral proxies. Framework designed to generate useful data regardless of outcome.
+Examining whether internal model vectors correlate with reported phenomenological experience. Tests the relationship between mechanical behavior modification and subjective states through behavioral proxies.In other words, I am testing if activation vectors correlate with subjective experience. Thus, answering: Can we measure what models 'feel'?"
+Framework designed to generate useful data regardless of outcome.
 
 **[avat-behavioral-steering](https://github.com/FF-GardenFn/avat-behavioral-steering)**
 Testing whether activation steering can induce instrumental misalignment behaviors through vector manipulation. Builds on activation addition research (Turner et al., 2023) and contrastive activation steering (Rimsky et al., 2023). Safety research identifying vulnerabilities to develop defenses.
