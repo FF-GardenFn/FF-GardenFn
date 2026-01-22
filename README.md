@@ -30,7 +30,7 @@ Framework designed to generate useful data regardless of outcome.
 **[avat-behavioral-steering](https://github.com/FF-GardenFn/avat-behavioral-steering)**
 Testing whether activation steering can induce instrumental misalignment behaviors through vector manipulation. Builds on activation addition research (Turner et al., 2023) and contrastive activation steering (Rimsky et al., 2023). Safety research identifying vulnerabilities to develop defenses.
 
-**[research-notes](https://github.com/FF-GardenFn/research-notes)**
+**[research-notes](https://github.com/FF-GardenFn/model-exploration-research-notes)**
 Critical analysis of fundamental limitations in current AI alignment approaches. Identifies three core constraints and fourteen failure modes across Constitutional AI, RLHF, and interpretability techniques. Engages with counter-evidence and frames claims as hypotheses worth investigating.
 
 #### Behavioral Monitoring
